@@ -1,20 +1,13 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-var app = express();
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', (req, res) => {
+    res.send({message: "hello world"});
+});
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-module.exports = app;
+app.listen(PORT, () => {
+    console.log(`Сервер запущен на порту: ${PORT}`);
+});
