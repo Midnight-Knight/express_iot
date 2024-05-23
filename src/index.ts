@@ -5,7 +5,7 @@ import { Server as WebSocketServer } from 'ws';
 import {getFullKg, getKg, setKg} from "@/entities/food";
 import {getDoor, setDoor} from "@/entities/door";
 import {getWaterLevel, setWaterLevel} from "@/entities/waterLevel";
-import {setWaterTurbidity} from "@/entities/waterTurbidity";
+import {getWaterTurbidity, setWaterTurbidity} from "@/entities/waterTurbidity";
 
 const app = express();
 const server = createServer(app);
@@ -27,7 +27,7 @@ iot_wss.on('connection', ws => {
             setKg(data.message.food);
             setWaterLevel(data.message.water.level);
             setWaterTurbidity(data.message.water.turbidity);
-            app_wss.clients.forEach(client => client.send(JSON.stringify({message: {door: getDoor(), food: {Kg: getKg(), fullKg: getFullKg()}, water: {level: getWaterLevel(), turbidity: getWaterLevel()}}})));
+            app_wss.clients.forEach(client => client.send(JSON.stringify({message: {door: getDoor(), food: {Kg: getKg(), fullKg: getFullKg()}, water: {level: getWaterLevel(), turbidity: getWaterTurbidity()}}})));
         }
         else
         {
