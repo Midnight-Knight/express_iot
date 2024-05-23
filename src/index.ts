@@ -56,7 +56,7 @@ app_wss.on('connection', ws => {
 
     ws.on("error", e => ws.send(String(e)));
 
-    ws.send(JSON.stringify({message: {door: getDoor(), food: {Kg: getKg(), fullKg: getFullKg()}, water: {level: getWaterLevel(), turbidity: getWaterLevel()}}}));
+    ws.send(JSON.stringify({message: {door: getDoor(), food: {Kg: getKg(), fullKg: getFullKg()}, water: {level: getWaterLevel(), turbidity: getWaterTurbidity()}}}));
 });
 
 server.on('upgrade', (request, socket, head) => {

@@ -50,7 +50,7 @@ app_wss.on('connection', ws => {
         }
     });
     ws.on("error", e => ws.send(String(e)));
-    ws.send(JSON.stringify({ message: { door: (0, door_1.getDoor)(), food: { Kg: (0, food_1.getKg)(), fullKg: (0, food_1.getFullKg)() }, water: { level: (0, waterLevel_1.getWaterLevel)(), turbidity: (0, waterLevel_1.getWaterLevel)() } } }));
+    ws.send(JSON.stringify({ message: { door: (0, door_1.getDoor)(), food: { Kg: (0, food_1.getKg)(), fullKg: (0, food_1.getFullKg)() }, water: { level: (0, waterLevel_1.getWaterLevel)(), turbidity: (0, waterTurbidity_1.getWaterTurbidity)() } } }));
 });
 server.on('upgrade', (request, socket, head) => {
     const pathname = request.url;
