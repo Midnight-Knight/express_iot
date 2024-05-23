@@ -66,7 +66,7 @@ server.on('upgrade', (request, socket, head) => {
         iot_wss.handleUpgrade(request, socket, head, (ws) => {
             iot_wss.emit('connection', ws, request);
         });
-    } else if (pathname === '/index') {
+    } else if (pathname === '/app') {
         app_wss.handleUpgrade(request, socket, head, (ws) => {
             app_wss.emit('connection', ws, request);
         });
