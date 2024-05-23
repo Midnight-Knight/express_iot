@@ -2,9 +2,9 @@
   "name": "server-iot",
   "version": "0.0.0",
   "private": true,
-  "main": "src/index.ts",
+  "main": "index.js",
   "scripts": {
-    "start": "node public/index.js",
+    "start": "node index.js",
     "build": "tsc"
   },
   "dependencies": {
@@ -24,6 +24,6 @@
     "typescript": "^5.4.5"
   },
   "_moduleAliases": {
-    "@": "public"
+    "@": ""
   }
 }

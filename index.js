@@ -13,7 +13,7 @@ const waterLevel_1 = require("@/entities/waterLevel");
 const waterTurbidity_1 = require("@/entities/waterTurbidity");
 const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.get('/', (req, res) => {
     res.send('Hello, world!');
 });

@@ -6,11 +6,12 @@
     },
     "target": "ES6",
     "module": "commonjs",
-    "outDir": "./public",
+    "outDir": "./",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

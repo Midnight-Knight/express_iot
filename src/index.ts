@@ -9,7 +9,7 @@ import {setWaterTurbidity} from "@/entities/waterTurbidity";
 
 const app = express();
 const server = createServer(app);
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
     res.send('Hello, world!');
