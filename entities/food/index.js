@@ -6,7 +6,7 @@ const h = 16.1;
 const d = 7.5;
 const V = (h * Math.PI * Math.pow(d, 2)) / 4;
 function getKg() {
-    return kg;
+    return typeof (kg) === "number" ? Number((((kg * Math.PI * Math.pow(d, 2)) / 4) / 1000).toFixed(3)) : kg;
 }
 exports.getKg = getKg;
 function setKg(cm) {
@@ -14,6 +14,6 @@ function setKg(cm) {
 }
 exports.setKg = setKg;
 function getFullKg() {
-    return Number((V / 1000).toFixed(5));
+    return Number((V / 1000).toFixed(3));
 }
 exports.getFullKg = getFullKg;
