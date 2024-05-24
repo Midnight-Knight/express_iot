@@ -12,7 +12,7 @@ const server = createServer(app);
 const PORT = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-    res.send('Hello, world!');
+    res.json({message: 'Hello, world!'});
 });
 
 const iot_wss = new WebSocketServer({ noServer: true });

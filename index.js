@@ -15,7 +15,7 @@ const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
 const PORT = process.env.PORT || 8080;
 app.get('/', (req, res) => {
-    res.send('Hello, world!');
+    res.json({ message: 'Hello, world!' });
 });
 const iot_wss = new ws_1.Server({ noServer: true });
 const app_wss = new ws_1.Server({ noServer: true });
