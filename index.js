@@ -11,6 +11,7 @@ const food_1 = require("@/entities/food");
 const door_1 = require("@/entities/door");
 const waterLevel_1 = require("@/entities/waterLevel");
 const waterTurbidity_1 = require("@/entities/waterTurbidity");
+const device_1 = require("@/entities/device");
 const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
 const PORT = process.env.PORT || 8080;
@@ -50,7 +51,7 @@ app_wss.on('connection', ws => {
         }
     });
     ws.on("error", e => ws.send(String(e)));
-    ws.send(JSON.stringify({ message: { door: (0, door_1.getDoor)(), food: { Kg: (0, food_1.getKg)(), fullKg: (0, food_1.getFullKg)() }, water: { level: (0, waterLevel_1.getWaterLevel)(), turbidity: (0, waterTurbidity_1.getWaterTurbidity)() } } }));
+    ws.send(JSON.stringify({ message: { door: (0, door_1.getDoor)(), food: { Kg: (0, food_1.getKg)(), fullKg: (0, food_1.getFullKg)() }, water: { level: (0, waterLevel_1.getWaterLevel)(), turbidity: (0, waterTurbidity_1.getWaterTurbidity)() }, device: (0, device_1.getDevice)() } }));
 });
 server.on('upgrade', (request, socket, head) => {
     const pathname = request.url;

@@ -6,6 +6,7 @@ import {getFullKg, getKg, setKg} from "@/entities/food";
 import {getDoor, setDoor} from "@/entities/door";
 import {getWaterLevel, setWaterLevel} from "@/entities/waterLevel";
 import {getWaterTurbidity, setWaterTurbidity} from "@/entities/waterTurbidity";
+import {getDevice} from "@/entities/device";
 
 const app = express();
 const server = createServer(app);
@@ -56,7 +57,7 @@ app_wss.on('connection', ws => {
 
     ws.on("error", e => ws.send(String(e)));
 
-    ws.send(JSON.stringify({message: {door: getDoor(), food: {Kg: getKg(), fullKg: getFullKg()}, water: {level: getWaterLevel(), turbidity: getWaterTurbidity()}}}));
+    ws.send(JSON.stringify({message: {door: getDoor(), food: {Kg: getKg(), fullKg: getFullKg()}, water: {level: getWaterLevel(), turbidity: getWaterTurbidity()}, device: getDevice()}}));
 });
 
 server.on('upgrade', (request, socket, head) => {
