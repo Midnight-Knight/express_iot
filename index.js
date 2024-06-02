@@ -29,7 +29,7 @@ iot_wss.on('connection', ws => {
             (0, food_1.setKg)(data.message.food);
             (0, waterLevel_1.setWaterLevel)(data.message.water.level);
             (0, waterTurbidity_1.setWaterTurbidity)(data.message.water.turbidity);
-            app_wss.clients.forEach(client => client.send(JSON.stringify({ message: { door: (0, door_1.getDoor)(), food: { Kg: (0, food_1.getKg)(), fullKg: (0, food_1.getFullKg)() }, water: { level: (0, waterLevel_1.getWaterLevel)(), turbidity: (0, waterTurbidity_1.getWaterTurbidity)() } } })));
+            app_wss.clients.forEach(client => client.send(JSON.stringify({ message: { door: (0, door_1.getDoor)(), food: { Kg: (0, food_1.getKg)(), fullKg: (0, food_1.getFullKg)() }, water: { level: (0, waterLevel_1.getWaterLevel)(), turbidity: (0, waterTurbidity_1.getWaterTurbidity)(), device: (0, device_1.getDevice)() } } })));
         }
         else {
             iot_wss.clients.forEach(client => client.send(JSON.stringify({ message: "error" })));
