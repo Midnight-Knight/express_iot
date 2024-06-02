@@ -14,7 +14,7 @@ const waterTurbidity_1 = require("@/entities/waterTurbidity");
 const device_1 = require("@/entities/device");
 const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
-const PORT = process.env.PORT || 8080;
+const PORT = Number(process.env.PORT) || 8080;
 app.get('/', (req, res) => {
     res.json({ message: 'Hello, world!' });
 });
@@ -69,4 +69,4 @@ server.on('upgrade', (request, socket, head) => {
         socket.destroy();
     }
 });
-server.listen(PORT, () => console.log("Server started: " + PORT));
+server.listen(PORT, '0.0.0.0', undefined, () => console.log("Server started: " + PORT));

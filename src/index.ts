@@ -10,7 +10,7 @@ import {getDevice} from "@/entities/device";
 
 const app = express();
 const server = createServer(app);
-const PORT = process.env.PORT || 8080;
+const PORT = Number(process.env.PORT) || 8080;
 
 app.get('/', (req, res) => {
     res.json({message: 'Hello, world!'});
@@ -28,7 +28,7 @@ iot_wss.on('connection', ws => {
             setKg(data.message.food);
             setWaterLevel(data.message.water.level);
             setWaterTurbidity(data.message.water.turbidity);
-            app_wss.clients.forEach(client => client.send(JSON.stringify({message: {door: getDoor(), food: {Kg: getKg(), fullKg: getFullKg()}, water: {level: getWaterLevel(), turbidity: getWaterTurbidity()}}})));
+            app_wss.clients.forEach(client => client.send(JSON.stringify({message: {door: getDoor(), food: {Kg: getKg(), fullKg: getFullKg()}, water: {level: getWaterLevel(), turbidity: getWaterTurbidity(), device: getDevice()}}})));
         }
         else
         {
@@ -76,4 +76,4 @@ server.on('upgrade', (request, socket, head) => {
     }
 });
 
-server.listen(PORT, () => console.log("Server started: "+PORT))
+server.listen(PORT, '0.0.0.0',undefined,() => console.log("Server started: "+PORT))
