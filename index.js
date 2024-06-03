@@ -15,12 +15,14 @@ const device_1 = require("@/entities/device");
 const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
 const PORT = Number(process.env.PORT) || 8080;
+app.use(express_1.default.json());
 app.get('/', (req, res) => {
     res.json({ message: 'Hello, world!' });
 });
 const iot_wss = new ws_1.Server({ noServer: true });
 const app_wss = new ws_1.Server({ noServer: true });
 app.post('/smart-home', (req, res) => {
+    console.log(req.body);
     const { version, session, request } = req.body;
     let text = "Привет, это навык прототипа умной кормушки! Вот команды, с которыми я могу работать.\n\n1.Сколько корма в кормушке?\n2.Какой уровень воды в кормушке?\n3.Какой процент мутности воды в кормушке?\n4.Открой пищевой люк\n5.Закрой пищевой люк\n6.Какое состояние пищевого люка?\n7.Статус кормушки";
     if (request["original_utterance"].length > 0) {
