@@ -5,7 +5,7 @@ export type typeWaterTurbidity = number | Default;
 let waterEnough: typeWaterTurbidity = "unknown";
 
 export function getWaterTurbidity(): typeWaterTurbidity {
-    return typeof(waterEnough) === "number" ? Math.round(waterEnough / 40.95) : waterEnough;
+    return typeof(waterEnough) === "number" ? (100 - Math.round(waterEnough / 40.95)) : waterEnough;
 }
 
 export function setWaterTurbidity(state: typeWaterTurbidity){
